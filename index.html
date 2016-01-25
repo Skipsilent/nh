@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>中国农业银行2015年十大新闻</title>
+	<meta name="author" content="web-XQ" />
+	 <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<script type='text/javascript' src='js/jquery-1.11.3.min.js'></script>
+	<script type='text/javascript' src='js/jq.xq.extend.js'></script>
+	<script type='text/javascript' src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
+	<meta name="description" content="中国农业银行2015年十大新闻">
+	<link rel="stylesheet" href="css/css.css" type='text/css'>
+	<link rel="stylesheet" href="css/jquery.fullPage.css" type='text/css'>
+	<link rel="stylesheet" href="css/swiper.min.css" type='text/css'>
+	<link rel="stylesheet" href="css/style.css" type='text/css'>
+</head>
+<body ng-app='myApp' ng-controller='nonghang'>
+<div class="loading pos-f wh100">
+	<div class="pos-r wh100">
+		<div class="pos-a loading_div">
+			<div class="pos-r wh100">
+				<span class=" pos-a circal"></span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="music pos-f">
+		<div class="pos-r wh100">
+			<span class='tl0 play'></span>
+			<span class='tl0 play-no opa'></span>
+		</div>
+	</div>
+<div class="mu">
+     <audio preload="preload" id="car_audio" src="mus/mus_1.mp3" loop=""></audio>
+</div>
+<script>
+    setTimeout(function(){
+        $(window).scrollTop(1);
+    },0);
+    /*音乐*/
+ var audio = $('#car_audio');
+    var isPlaying = false;
+    function playAudio() {
+        var audio = $('#car_audio');
+        if (audio.attr('src') == undefined) {
+            audio.attr('src', audio.data('src'));
+        }
+        audio[0].play();
+        isPlaying = true;
+    }
+    $(function(){
+        playAudio();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+                network = e.err_msg.split(":")[1];  //结果在这里
+ playAudio();
+            });
+        }, false);
+    })
+</script>
+	<article id="fullpage" class='fullpage '>
+		<section class="section" >
+			<div class="slide page1" ng-swipe-left='net()'>
+				<div class="body page_ pos-r wh100">
+					<div class="pos-a bk tl0 wh100">
+						<img src="images/bk_1.jpg" alt="" class="wh100">
+					</div>
+					<div class="html  pos-r">
+						<img src="images/logo.png" alt="" class="logo-1 margin d-b">
+						<div class="center sj_div margin pos-r">
+							<img src="images/map.png" alt="" class="map pos-a">
+							<img src="images/sj.png" alt="" class="bk_img pos-a">
+							<img src="images/2015-d.png" alt="" class="da2015 margin d-b pos-r">
+							<img src="images/10da.png"  alt="" class="shida margin d-b pos-r">
+							<img src="images/new.png"  alt="" class="new margin d-b pos-r">
+						</div>
+							<img src="images/10.png" alt="" class="shi margin d-b">
+							<img src="images/top.png" alt="" class="top margin d-b">
+					</div>
+					<div class="icon_net pos-f">
+						<img src="icon/arrow-right.png" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="slide">
+				<div class="body pos-r wh100">
+					<div class="pos-a bk tl0 wh100">
+						<div class="pos-r wh100">
+							<img src="images/bk-zc.png" class="pos-a tl0 zxzx wh100" halt="">
+							<div class="guangsu pos-r">
+								<img src="images/dengsu.png" class="pos-a one tl0 wh100" alt="">
+								<img src="images/dengsu.png" class="pos-a two tl0 wh100" alt="">
+								<img src="images/dengsu.png" class="tl0 pos-a  three wh100" alt="">
+							</div>
+							<div class="pos-r wutai">
+								<img src="images/wutai.jpg" alt="" class="pos-a tl0 wh100">
+								<div class="tutai_pd w100"></div>
+								<div class=" tutai_deng pos-a  w100">
+									<img src="images/wutai_deng.png" class="w100" alt="">
+								</div>
+								<div class="star-l pos-a">
+									<div class="pos-r wh100">
+										<img src="images/star_bk.png" alt="">
+										<img src="images/star.png" class="pos-a" alt="">
+									</div>
+								</div>
+								<div class="star-r pos-a">
+									<div class="pos-r wh100">
+										<img src="images/starr_bk.png" alt="">
+										<img src="images/starr.png" class="pos-a" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="html pos-r wh100">
+						<img src="images/logo.png" alt="" class="logo margin d-b">
+						<img src="images/title.png" alt="" class="title margin d-b">
+						<div class="pos-r">
+							<div class="pos-a x_pic_ wh100">
+								<div class="swiper-container x_pic_aa margin pos-r">
+									<div class="swiper-wrapper  x_pic_rq margin" ng-swipe-right='pre()'>
+										<div class="swiper-slide" ng-repeat='new in news'>
+											<div class=" pos-r margin" data-swiper-parallax="1" >
+												<div class="wh100 img_rq">
+													<img src="imgs/{{new.pic}}"  alt="">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="pos-a w100 img_bkbkbk"></div>
+
+								</div>
+							</div>
+							<div class="swiper-container x_pic_nr" >
+								<div class="swiper-wrapper " ng-swipe-right='pre()'>
+									<div class="swiper-slide" ng-repeat='new in news'>
+										<div class=" b_num_top">
+											<div class="b_num pos-r">
+												<div class="img1 pos-a"><img src="imgs/{{new.img}}"  alt="" ng-class="{'b_num_img1':cal,'b_num_img1_' :new.id==9, 'b_num_img1_0' :new.id==0}"></div>								
+												<div class="img2 pos-a"><img src="imgs/top.png"  alt="" class="b_num_img2 "></div>
+											</div>
+										</div>
+										<div class="t-a-c w100">
+											<div class="b_tit">
+												<p class="b_tit1">&nbsp;</p>
+												<p ng-bind='new.title'></p>
+												<p class="b_tit2">&nbsp;</p>
+											</div>
+										</div>
+										<div class="b_img_d pos-r margin b_img_mb" data-swiper-parallax="1" >
+											<!-- <img src="imgs/{{new.pic}}"  alt="">
+											<div class="pos-a w100"></div> -->
+										</div>
+										<div class="b_ul">
+										<p>转载媒体</p>
+											<div class="center">
+												<ul class=" clearfix">
+												<li ng-repeat='media in new.medias' ng-class="{'b_li_checked_': $index==1,{{$index+1}}:cla}">
+													<img src="imgs/{{media.img_media}}"  alt="">								
+												</li>
+												</ul>
+											</div>
+													
+										</div>
+										<div class="txtnew margin">
+											<ul class="clearfix">
+												<li ng-repeat='txt in new.new' ng-click="show_(new.id,$index)" num='{{new.id}}' ind='{{$index}}' class=" clearfix">
+													<div class="nr">
+														<p ng-bind='($index+1)+"."+txt.ti'></p>
+													</div>
+													<div class="time">
+														<em ng-bind='txt.time'></em>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</section>
+	</article>
+	<div class="pos-f tanchu">
+		<div class="pos-r tl0 wh100">
+			<span class="pos-a" ng-click='show_()'><img src="images/guanbi.png"  alt=""></span>
+			<div class="top">
+				<h1 ng-bind='tet.ti'></h1>
+				<em ng-bind='tet.time'></em>
+			</div>
+			<div class="bottom" ng-bind-html='tet.article'>
+				<p > </p>
+			</div>
+		</div>
+	</div>
+</body>
+	<script type='text/javascript' src='js/angular.js'></script>
+	<script type='text/javascript' src='js/angular-touch.min.js'></script>
+	<script type='text/javascript' src='js/jquery.fullPage.min.js'></script>
+	<script type='text/javascript' src='js/swiper.jquery.min.js'></script>
+	<script type='text/javascript' src='js/index.js'></script>
+	<script type='text/javascript' src='js/app-ctrl.js'></script>
+</html>
